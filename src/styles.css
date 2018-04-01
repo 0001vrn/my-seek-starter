@@ -1,0 +1,366 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  transition: color 250ms, background-color 250ms;
+  text-decoration: none;
+}
+
+app-main > section {
+  display: flex;
+  align-items: stretch;
+  height: calc(100% - 3em);
+  margin: 0;
+  padding-top: 3em;
+}
+app-main > section results-list {
+  flex: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+app-main > section favorites {
+  flex: 3;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+app-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3em;
+  color: white;
+  background-color: #4A90E2;
+  z-index: 10;
+}
+app-navigation > section {
+  display: flex;
+  height: 100%;
+}
+app-navigation > section > a {
+  flex: 2;
+  padding: .9em 0 0 1em;
+  font-weight: normal;
+  color: white;
+  display: block;
+}
+
+results-list {
+  background-color: #fafcfe;
+}
+results-list input {
+  width: calc(100% - 1em - 3px);
+  border: solid thin rgba(74, 144, 226, 0.25);
+  height: 40px;
+  padding: .5em;
+  font-size: 1em;
+  font-weight: 100;
+  color: rgba(74, 144, 226, 0.75);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+results-list input:focus, results-list input:active {
+  outline: none;
+}
+results-list input::-webkit-input-placeholder {
+  color: rgba(74, 144, 226, 0.25);
+}
+results-list input:-moz-placeholder {
+  color: rgba(74, 144, 226, 0.25);
+}
+results-list input::-moz-placeholder {
+  color: rgba(74, 144, 226, 0.25);
+}
+results-list input:-ms-input-placeholder {
+  color: rgba(74, 144, 226, 0.25);
+}
+results-list .no-results {
+  width: 100%;
+  padding: 3em 0;
+  color: rgba(74, 144, 226, 0.5);
+  font-style: italic;
+  margin: 0;
+  text-align: center;
+  background-color: rgba(74, 144, 226, 0.125);
+}
+
+result:nth-of-type(odd) > div {
+  background-color: #f5f9fd;
+}
+result:nth-of-type(odd) > div:hover {
+  background-color: #f1f6fd;
+}
+result > div {
+  display: flex;
+  height: 70px;
+  color: #4A90E2;
+  overflow: hidden;
+  transition: background-color 250ms;
+}
+result > div:hover {
+  background-color: #f1f6fd;
+}
+result > div > div:first-child {
+  flex: 1;
+  text-align: center;
+  padding-top: 10px;
+}
+result > div > div:first-child > img {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+}
+result > div > div:first-child .placeholder {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  display: block;
+  background-color: #cee1f7;
+  margin: auto;
+}
+result > div > div:last-child {
+  flex: 3;
+  padding-top: 10px;
+  font-weight: normal;
+  position: relative;
+}
+result > div > div:last-child span {
+  padding-top: .25em;
+  width: 83%;
+  display: block;
+  overflow: hidden;
+  font-size: .85em;
+}
+result > div > div:last-child span.artist {
+  color: #a2c6f0;
+}
+result > div > div:last-child i {
+  color: #cee1f7;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  padding: 10px;
+  transition: color 250ms;
+}
+result > div > div:last-child i:hover {
+  color: #76abe9;
+}
+
+favorites section {
+  display: flex;
+  flex-flow: wrap;
+  padding: 0 1em;
+}
+favorites section h1 {
+  width: 100%;
+  display: block;
+  font-size: 3em;
+  font-weight: 100;
+  margin: .75em 0 .5em;
+  color: rgba(74, 144, 226, 0.5);
+  padding: 0 0 0 .5em;
+  line-height: 1em;
+}
+favorites section favorite {
+  flex: 1;
+  margin: 1em 0;
+  max-width: 200px;
+}
+
+favorite > div {
+  width: 200px;
+  text-align: center;
+  color: #76abe9;
+  border: solid thin transparent;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: background-color 250ms, border-color 250ms, color 250ms;
+}
+favorite > div:hover {
+  background-color: #f5f9fd;
+}
+favorite > div.active {
+  color: #4A90E2;
+  background-color: #e4eefb;
+  border-color: #cee1f7;
+}
+favorite > div img {
+  margin-top: 1em;
+  height: 150px;
+  width: 150px;
+  border-radius: .5em;
+}
+favorite > div p {
+  text-align: center;
+}
+
+app-details > section {
+  display: flex;
+  align-items: stretch;
+  height: calc(100% - 3em);
+  margin: 0;
+  padding-top: 3em;
+  position: relative;
+}
+app-details > section > .back {
+  position: absolute;
+  top: 3em;
+  right: 1em;
+  padding: 1em;
+  color: rgba(74, 144, 226, 0.5);
+}
+app-details > section > .delete {
+  position: absolute;
+  top: 3em;
+  right: 4em;
+  padding: 1em;
+  color: rgba(74, 144, 226, 0.5);
+}
+app-details > section > aside {
+  flex: 1;
+  height: 100%;
+  background-color: #4A90E2;
+  color: white;
+}
+app-details > section > aside > .image {
+  display: block;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+app-details > section > aside > .image > h2 {
+  position: absolute;
+  z-index: 12;
+  bottom: 0;
+  font-size: 1em;
+  left: 1em;
+  font-weight: 100;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+app-details > section > aside > .image > .fa {
+  position: absolute;
+  z-index: 13;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  padding: 1em;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.5);
+}
+app-details > section > aside > .image > .gradient {
+  width: 100%;
+  height: 100%;
+  background: -moz-linear-gradient(top, rgba(74, 144, 226, 0) 0%, rgba(74, 144, 226, 0) 53%, #4a90e2 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(74, 144, 226, 0) 0%, rgba(74, 144, 226, 0) 53%, #4a90e2 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(74, 144, 226, 0) 0%, rgba(74, 144, 226, 0) 53%, #4a90e2 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004a90e2', endColorstr='#4a90e2',GradientType=0 );
+  /* IE6-9 */
+  position: absolute;
+}
+app-details > section > aside > .image > img {
+  width: 100%;
+}
+app-details > section > aside > .bio {
+  font-size: .8em;
+  line-height: 2em;
+  height: calc(100% - 180px - 3em);
+  padding: 2em 3em 1em 2em;
+  overflow-y: scroll;
+}
+app-details > section > aside > .bio a {
+  color: #185195;
+}
+app-details > section > article {
+  flex: 3;
+  padding: 1em;
+  height: calc(100% - 2em);
+  overflow: hidden;
+}
+app-details > section > article > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 47px;
+  border-bottom: solid thin rgba(74, 144, 226, 0.5);
+}
+app-details > section > article > ul li {
+  display: inline-block;
+}
+app-details > section > article > ul li a {
+  font-size: 1em;
+  color: rgba(74, 144, 226, 0.5);
+  display: block;
+  padding: .9em;
+  border-bottom: solid thin transparent;
+}
+app-details > section > article > ul li a:hover {
+  color: rgba(74, 144, 226, 0.75);
+}
+app-details > section > article > ul li a.router-link-active {
+  color: #4A90E2 !important;
+  border-bottom-color: #4A90E2;
+}
+app-details > section > article > .content {
+  margin-top: 1em;
+  color: grey;
+  height: calc(100% - 47px);
+  overflow: hidden;
+}
+
+similar-artists > section {
+  height: 100%;
+  overflow-y: scroll;
+}
+similar-artists > section ul {
+  margin: 0;
+  padding: 0 2em;
+}
+similar-artists > section ul li {
+  padding: .5em 0;
+}
+
+top-albums > section {
+  height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+}
+top-albums > section > div {
+  min-width: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+top-albums > section > div > img {
+  width: 100%;
+}
+top-albums > section > div > .placeholder {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(74, 144, 226, 0.5);
+}
+top-albums > section > div > p {
+  position: absolute;
+  bottom: 0;
+  font-size: .9em;
+  left: .5em;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
