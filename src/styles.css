@@ -13,7 +13,10 @@ a {
   transition: color 250ms, background-color 250ms;
   text-decoration: none;
 }
-
+app-main > p, app-details > p{
+  margin-top: 4em;
+  margin-left: 2em;
+}
 app-main > section {
   display: flex;
   align-items: stretch;
@@ -47,7 +50,7 @@ app-navigation > section {
   height: 100%;
 }
 app-navigation > section > a {
-  flex: 2;
+  flex: 0; /* 2 is flexible length*/
   padding: .9em 0 0 1em;
   font-weight: normal;
   color: white;

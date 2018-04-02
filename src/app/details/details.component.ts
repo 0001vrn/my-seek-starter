@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit {
     let mainImageUrl = '';
     if(this.artistInfo && this.artistInfo.images && this.artistInfo.images[3] && this.artistInfo.images[3]['#text'])
     {
-      mainImageUrl =  this.artistInfo.images[3]['#text'];
+      mainImageUrl = this.artistInfo.images[3]['#text'];
     }
     return mainImageUrl;
   }
