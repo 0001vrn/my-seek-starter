@@ -10,6 +10,9 @@ import { DetailsComponent } from './details/details.component';
 import { MainComponent } from './main/main.component';
 
 import { HttpServiceService } from './services/http-service.service';
+import { FavoritesService } from './services/favorites.service';
+import { DataService } from './services/data.service';
+import { MyComponent } from './my/my.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -22,7 +25,8 @@ const appRoutes: Routes = [
     NavigationComponent,
     SeekComponent,
     DetailsComponent,
-    MainComponent
+    MainComponent,
+    MyComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,7 @@ const appRoutes: Routes = [
     ),
     HttpModule
   ],
-  providers: [ HttpServiceService ],
+  providers: [ HttpServiceService, FavoritesService, DataService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

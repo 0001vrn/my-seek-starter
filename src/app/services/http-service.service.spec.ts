@@ -18,19 +18,19 @@ describe('HttpServiceService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('getTopAlbum(artist) should be defined', async(() => {
+  it('getTopAlbum(artist) should be defined', () => {
     expect(service.getTopAlbum).toBeDefined();
-  }));
+  });
 
-  it('getSimilarArtists(artist) should be defined', async(() => {
+  it('getSimilarArtists(artist) should be defined', () => {
     expect(service.getSimilarArtists).toBeDefined();
-  }));
+  });
 
-  it('getArtistInfo(artist) should be defined', async(() => {
+  it('getArtistInfo(artist) should be defined', () => {
     expect(service.getArtistInfo).toBeDefined();
-  }));
+  });
 
-  it('findArtists(query) should be defined', async(() => {
+  it('findArtists(query) should be defined', () => {
     expect(service.findArtists).toBeDefined();
-  }));
+  });
 });
