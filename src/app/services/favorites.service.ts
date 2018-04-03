@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 @Injectable()
-export class FavoritesService {
+export class FavoritesService implements OnInit {
 
   storageKey = 'favoritesService';
   isLocalStorageEnabled;
-
+  favorites = [];
   constructor() {
 
     this.isLocalStorageEnabled = (() => {
@@ -20,6 +20,9 @@ export class FavoritesService {
     });
   }
   
+  ngOnInit() {
+    this.favorites = this.getFavoritesFromStorage();
+  }
   getFavoritesFromStorage() {
     let localFavorites = [];
     
@@ -28,8 +31,32 @@ export class FavoritesService {
       if(stringLocalFavorites)
         localFavorites = JSON.parse(stringLocalFavorites);
     }
-
-
     return localFavorites;
+  }
+
+  getFavorites(){
+    return this.favorites;
+  }
+
+  addFavorite(favorite) {
+    if(favorite){
+      let currentFavorites = this.getFavorites();
+      currentFavorites.push(favorite);
+      if(this.isLocalStorageEnabled){
+        localStorage.setItem(this.storageKey, JSON.stringify(currentFavorites));
+      }
+      this.favorites = currentFavorites;
+    }
+  }
+  removeFavorite(id) {
+    if(this.favorites){
+      let favoriteIdx = this.favorites.findIndex(x => x.id == id);
+      this.favorites.splice(favoriteIdx, 1);
+      if(this.isLocalStorageEnabled){
+        localStorage.setItem(this.storageKey, JSON.stringify(this.favorites));
+      }
+    }
+  }
+  isFavorite() {
   }
 }

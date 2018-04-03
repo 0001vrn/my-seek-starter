@@ -2,21 +2,20 @@ import { async, fakeAsync, ComponentFixture, TestBed } from '@angular/core/testi
 
 import { Observable } from 'rxjs/Rx';
 
-
 import { MyComponent } from './my.component';
 
 import { DataStub } from '../services/data-stub';
 import { testData } from '../services/models/test-data';
 import { DataService } from '../services/data.service';
 
-fdescribe('MyComponent', () => {
+describe('MyComponent', () => {
   let component: MyComponent;
   let fixture: ComponentFixture<MyComponent>;
   let dataStub: DataStub;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyComponent ]
+      declarations: [ MyComponent ],
     }).overrideComponent(MyComponent, {
       set: {
         providers: [
