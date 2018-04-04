@@ -13,6 +13,8 @@ import { HttpServiceService } from './services/http-service.service';
 import { FavoritesService } from './services/favorites.service';
 import { DataService } from './services/data.service';
 import { MyComponent } from './my/my.component';
+import { HighlightMyTextDirective } from './shared/directives/highlight-my-text.directive';
+import { DateFormatterPipe } from './shared/pipes/date-formatter-pipe';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -26,7 +28,9 @@ const appRoutes: Routes = [
     SeekComponent,
     DetailsComponent,
     MainComponent,
-    MyComponent
+    MyComponent,
+    HighlightMyTextDirective,
+    DateFormatterPipe
   ],
   imports: [
     BrowserModule,
