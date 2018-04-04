@@ -58,8 +58,27 @@ export class FavoritesService implements OnInit {
     }
   }
   isFavorite(id) {
-    return this.favorites.some(x => {
-        return x.id == id;
-      });
+    return this.favorites.some(favorite => {
+        return favorite.id === id;
+    });
+  }
+}
+
+
+
+export class MockFavoritesService {
+  getFavoritesFromStorage() {
+      return [];
+  }
+  getFavorites() {
+      return [];
+  }
+
+  addFavorite() {}
+
+  removeFavorite() {}
+
+  isFavorite() {
+      return false;
   }
 }

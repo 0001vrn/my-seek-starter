@@ -15,75 +15,51 @@ export class HttpServiceService {
    }
 
   getTopAlbum(artist){
-    return new Promise((resolve, reject) => {
-      this.http.get(`${this.baseUrl}&method=artist.gettopalbums&artist=${artist}`)
-              .map( data => data.json())
-              .subscribe(
-                data => {
-                  if(data && data.topalbums && data.topalbums.album)
-                    resolve(data.topalbums.album);
-                  else
-                    reject({ message: 'No top albums available'})
-                },
-                error => {
-                  reject({ message : error }); 
-                }
-              ); 
-    });
+    return this.http.get(`${this.baseUrl}&method=artist.gettopalbums&artist=${artist}`)
+                    .toPromise()
+                    .then((response) => {
+                        response.json();
+                    }); 
   }
 
   getSimilarArtists(artist){
-    return new Promise((resolve, reject) => {
-      this.http.get(`${this.baseUrl}&method=artist.similarartists&artist=${artist}`)
-              .map( data => data.json())
-              .subscribe(
-                data => {
-                  if(data && data.similarartists && data.similarartists.album)
-                    resolve(data.similarartists.album);
-                  else
-                    reject({ message: 'No similar artists available'})
-                },
-                error => {
-                  reject({ message : error }); 
-                }
-              ); 
-    });
+    return this.http.get(`${this.baseUrl}&method=artist.similarartists&artist=${artist}`)
+                    .toPromise()
+                    .then((response) => {
+                        response.json();
+                    }); 
   }
   
 
   getArtistInfo(artist){
-    return new Promise((resolve, reject) => {
-      this.http.get(`${this.baseUrl}&method=artist.getinfo&artist=${artist}`)
-              .map( data => data.json())
-              .subscribe(
-                data => {
-                  if(data && data.artist)
-                    resolve(data.artist);
-                  else
-                    reject({ message: 'No artist info available'})
-                },
-                error => {
-                  reject({ message : error }); 
-                }
-              ); 
-    });
+    return this.http.get(`${this.baseUrl}&method=artist.getinfo&artist=${artist}`)
+                    .toPromise()
+                    .then((response) => {
+                        response.json();
+                    }); 
+              
   }
 
   findArtists(query){
-    return new Promise((resolve, reject) => {
-      this.http.get(`${this.baseUrl}&method=artist.search&artist=${query}`)
-              .map( data => data.json())
-              .subscribe(
-                data => {
-                  if(data && data.results && data.results.artistmatches)
-                    resolve(data.results.artistmatches);
-                  else
-                    reject({ message: 'No artists match that query'})
-                },
-                error => {
-                  reject({ message : error }); 
-                }
-              ); 
-    });
+    return  this.http.get(`${this.baseUrl}&method=artist.search&artist=${query}`)
+                      .toPromise()
+                      .then((response) => {
+                          response.json();
+                      }); 
+
+  }
+}
+export class MockHttpService {
+  getTopAlbums() {
+      return [];
+  }
+  getSimilarArtists() {
+      return [];
+  }
+  getArtistInfo() {
+      return [];
+  }
+  findArtists() {
+      return [];
   }
 }

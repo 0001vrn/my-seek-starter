@@ -15,6 +15,8 @@ import { DataService } from './services/data.service';
 import { MyComponent } from './my/my.component';
 import { ResultsListComponent } from './results-list/results-list.component';
 import { ResultComponent } from './results-list/result/result.component';
+import { HighlightMyTextDirective } from './shared/directives/highlight-my-text.directive';
+import { DateFormatterPipe } from './shared/pipes/date-formatter-pipe';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -30,7 +32,9 @@ const appRoutes: Routes = [
     MainComponent,
     MyComponent,
     ResultsListComponent,
-    ResultComponent
+    ResultComponent,
+    HighlightMyTextDirective,
+    DateFormatterPipe
   ],
   imports: [
     BrowserModule,
