@@ -57,6 +57,9 @@ export class FavoritesService implements OnInit {
       }
     }
   }
-  isFavorite() {
+  isFavorite(id) {
+    return this.favorites.some(x => {
+        return x.id == id;
+      });
   }
 }

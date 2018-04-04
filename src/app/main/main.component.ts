@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ResultsListComponent } from '../results-list/results-list.component';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',

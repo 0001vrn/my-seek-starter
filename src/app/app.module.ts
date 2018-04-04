@@ -13,6 +13,8 @@ import { HttpServiceService } from './services/http-service.service';
 import { FavoritesService } from './services/favorites.service';
 import { DataService } from './services/data.service';
 import { MyComponent } from './my/my.component';
+import { ResultsListComponent } from './results-list/results-list.component';
+import { ResultComponent } from './results-list/result/result.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -26,7 +28,9 @@ const appRoutes: Routes = [
     SeekComponent,
     DetailsComponent,
     MainComponent,
-    MyComponent
+    MyComponent,
+    ResultsListComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
