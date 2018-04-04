@@ -9,7 +9,7 @@ import { SeekComponent } from './seek/seek.component';
 import { DetailsComponent } from './details/details.component';
 import { MainComponent } from './main/main.component';
 
-import { HttpServiceService } from './services/http-service.service';
+import { HttpService } from './services/http-service.service';
 import { FavoritesService } from './services/favorites.service';
 import { DataService } from './services/data.service';
 import { MyComponent } from './my/my.component';
@@ -17,6 +17,7 @@ import { ResultsListComponent } from './results-list/results-list.component';
 import { ResultComponent } from './results-list/result/result.component';
 import { HighlightMyTextDirective } from './shared/directives/highlight-my-text.directive';
 import { DateFormatterPipe } from './shared/pipes/date-formatter-pipe';
+import { TruncatePipe } from './shared/pipes/truncate.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     ResultsListComponent,
     ResultComponent,
     HighlightMyTextDirective,
-    DateFormatterPipe
+    DateFormatterPipe,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,7 @@ const appRoutes: Routes = [
     ),
     HttpModule
   ],
-  providers: [ HttpServiceService, FavoritesService, DataService ],
+  providers: [ HttpService, FavoritesService, DataService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

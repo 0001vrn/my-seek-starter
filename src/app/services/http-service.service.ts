@@ -4,7 +4,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class HttpServiceService {
+export class HttpService {
   
   
   baseUrl:string;
@@ -41,25 +41,49 @@ export class HttpServiceService {
   }
 
   findArtists(query){
-    return  this.http.get(`${this.baseUrl}&method=artist.search&artist=${query}`)
-                      .toPromise()
-                      .then((response) => {
-                          response.json();
-                      }); 
-
-  }
+    // return  this.http.get(`${this.baseUrl}&method=artist.search&artist=${query}`)
+    //                   .toPromise()
+    //                   .then((response) => {
+    //                       response.json();
+    //                   }); 
+    return new Promise((resolve, reject) => {
+        this.http.get(`${this.baseUrl}&method=artist.search&artist=${query}`)
+            .map(data => data.json())
+            .subscribe(
+                data => {
+                    if (data && data.results && data.results.artistmatches) {
+                        resolve(data.results.artistmatches);
+                    } else {
+                        reject({ message: 'No artists match that query.'})
+                    }
+                },
+                error => {
+                    reject({ message: error });
+                }
+            );
+    });
+    
+    }
 }
 export class MockHttpService {
-  getTopAlbums() {
-      return [];
-  }
-  getSimilarArtists() {
-      return [];
-  }
-  getArtistInfo() {
-      return [];
-  }
-  findArtists() {
-      return [];
-  }
+    getTopAlbums() {
+        return new Promise((resolve, reject) => {
+            resolve([]);
+        })
+    }
+    getSimilarArtists() {
+        return new Promise((resolve, reject) => {
+            resolve([]);
+        })
+    }
+    getArtistInfo() {
+        return new Promise((resolve, reject) => {
+            resolve([]);
+        })
+    }
+    findArtists() {
+        return new Promise((resolve, reject) => {
+            resolve([]);
+        })
+    }
 }
