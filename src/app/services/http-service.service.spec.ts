@@ -49,6 +49,9 @@ describe('HttpServiceService', () => {
 
   it('getSimilarArtists(artist) should be defined', () => {
     expect(service.getSimilarArtists).toBeDefined();
+    service.getSimilarArtists(null).then(res => {
+      expect(res).toBeNull();
+  });
   });
 
   it('getArtistInfo(artist) should be defined', () => {
