@@ -54,7 +54,7 @@ export class HttpService {
                     if (data && data.results && data.results.artistmatches) {
                         resolve(data.results.artistmatches);
                     } else {
-                        reject({ message: 'No artists match that query.'})
+                        reject({ message: 'No artists match that query.'});
                     }
                 },
                 error => {

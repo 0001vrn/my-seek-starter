@@ -46,21 +46,16 @@ describe('FavoritesService', () => {
   
     it('should return an array of localStorage (when it\'s enabled)', () => {
       localStorage.setItem(service.storageKey, JSON.stringify(mockStorageFavorites));
-  
       let favoritesFromStorageCall = service.getFavoritesFromStorage();
-  
       expect(favoritesFromStorageCall.length).toBe(2);  
       expect(favoritesFromStorageCall[0].id).toBe(1);
       expect(favoritesFromStorageCall[1].id).toBe(2);
     });
   
     it('should not return an array of localStorage (when it\'s disabled)', () => {
-      
       localStorage.setItem(service.storageKey, JSON.stringify(mockStorageFavorites));
       service.isLocalStorageEnabled = false;
-  
       let favoritesFromStorageCall = service.getFavoritesFromStorage();
-  
       expect(favoritesFromStorageCall.length).toBe(0);
     });
   });
@@ -77,15 +72,11 @@ describe('FavoritesService', () => {
       expect(service.addFavorite).toBeDefined();
       spyOn(localStorage, 'setItem').and.callThrough();
       service.addFavorite(mockFavorite);
-      
       expect(service.favorites.length).toBe(1);
       expect(service.favorites[0].id).toBe(1);
       expect(service.favorites[0].name).toBe('Derp');
-      
       expect(localStorage.setItem).toHaveBeenCalledWith(service.storageKey, JSON.stringify([mockFavorite]));
-
       let localStorageFavorite = JSON.parse(localStorage.getItem(service.storageKey));
-
       expect(localStorageFavorite.length).toBe(1);
       expect(localStorageFavorite[0].id).toBe(1);
       expect(localStorageFavorite[0].name).toBe('Derp');
@@ -93,15 +84,11 @@ describe('FavoritesService', () => {
     it('should add a favorite and not cache that favorite (when localStorage is disabled)', () => {
       expect(service.addFavorite).toBeDefined();
       spyOn(localStorage, 'setItem').and.callThrough();
-      
       service.isLocalStorageEnabled = false;
-      
       service.addFavorite(mockFavorite);
-      
       expect(service.favorites.length).toBe(1);
       expect(service.favorites[0].id).toBe(1);
       expect(service.favorites[0].name).toBe('Derp');
-      
       expect(localStorage.setItem).not.toHaveBeenCalled();
     });
   });
@@ -110,40 +97,27 @@ describe('FavoritesService', () => {
       expect(service.removeFavorite).toBeDefined();
       expect(service.addFavorite).toBeDefined();
       spyOn(localStorage, 'setItem').and.callThrough();
-
       expect(service.favorites.length).toBe(0);
-
       service.addFavorite(mockFavorite);
-      
       expect(service.favorites.length).toBe(1);
       expect(service.favorites[0].id).toBe(1);
       expect(service.favorites[0].name).toBe('Derp');
-
       service.removeFavorite(1);
-
       expect(localStorage.setItem).toHaveBeenCalledWith(service.storageKey, JSON.stringify([mockFavorite]));
-
       let localStorageFavorite = JSON.parse(localStorage.getItem(service.storageKey));
-
       expect(localStorageFavorite.length).toBe(0);
     });
     it('remove a favorite item from \'favorites\' and not from localStorage (when disabled)', () => {
       expect(service.removeFavorite).toBeDefined();
       expect(service.addFavorite).toBeDefined();
       spyOn(localStorage, 'setItem').and.callThrough();
-
       expect(service.favorites.length).toBe(0);
-      
       service.isLocalStorageEnabled = false;
-      
       service.addFavorite(mockFavorite);
-      
       expect(service.favorites.length).toBe(1);
       expect(service.favorites[0].id).toBe(1);
       expect(service.favorites[0].name).toBe('Derp');
-
       service.removeFavorite(1);
-      
       expect(localStorage.setItem).not.toHaveBeenCalled();
     });
   });

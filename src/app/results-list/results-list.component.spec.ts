@@ -65,6 +65,31 @@ describe('ResultsListComponent', () => {
       expect(httpService.findArtists).toHaveBeenCalledTimes(1);
       
     }));
+
+    it('should be defined with query Himanshu Motwani', fakeAsync(() => {
+      spyOn(httpService, 'findArtists').and.callThrough();
+      expect(component.searchForArtist).toBeDefined();
+      component.searchForArtist('Himanshu Motwani');
+      tick(501);
+      expect(httpService.findArtists).toHaveBeenCalledWith('Himanshu Motwani');
+      expect(httpService.findArtists).toHaveBeenCalledTimes(1);
+      expect(component.results).toBeUndefined();
+      
+    }));
+    function findArtistsFake() {
+      return new Promise((resolve, reject) => {
+        reject({ message: 'No artists match that query.'});
+      });
+    }
+    it('should be defined with query Himanshu Motwani with error', fakeAsync(() => {
+      spyOn(httpService, 'findArtists').and.callFake(findArtistsFake);
+      expect(component.searchForArtist).toBeDefined();
+      component.searchForArtist('Himanshu Motwani');
+      tick(501);
+      expect(httpService.findArtists).toHaveBeenCalledWith('Himanshu Motwani');
+      expect(httpService.findArtists).toHaveBeenCalledTimes(1);
+      expect(component.errMsg).toBe('No artists match that query.');
+    }));
   });
 
 });
