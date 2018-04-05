@@ -2,6 +2,13 @@
 
 A TDD Intro in ES6
 
+# How to run this project
+
+1. git clone https://github.com/0001vrn/my-seek-starter
+2. cd my-seek-starter
+3. npm i
+4. npm start
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## Development server
