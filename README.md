@@ -5,7 +5,7 @@ A TDD Intro in ES6
 # How to run this project
 
 1. git clone https://github.com/0001vrn/my-seek-starter
-2. cd repo_dir
+2. cd my-seek-starter
 3. npm i
 4. npm start
 
