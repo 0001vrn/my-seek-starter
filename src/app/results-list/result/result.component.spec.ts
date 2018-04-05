@@ -36,8 +36,8 @@ describe('ResultComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  xit('should render its HTML template', async(() => {
-    expect(fixture.nativeElement.innerHTML).toContain('result');
+  it('should render its HTML template', async(() => {
+    expect(fixture.nativeElement.innerHTML).toContain('div');
   }));
 
   describe('Function: getImage(images, index)', () =>{

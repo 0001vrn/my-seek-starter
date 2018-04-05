@@ -11,13 +11,18 @@ import { DataService } from '../services/data.service';
 export class MyComponent implements OnInit {
   
   data: Data[];
-    
+  dateVar = new Date();
+
   constructor (private dataSvc : DataService ) { }
 
   ngOnInit() {
     this.dataSvc.get().subscribe(
-      data => this.data = data
+      data => {
+        this.data = data;console.log(data);
+      }
     );
+
+
   }
 
 }

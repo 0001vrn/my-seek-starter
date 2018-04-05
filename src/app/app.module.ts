@@ -18,10 +18,12 @@ import { ResultComponent } from './results-list/result/result.component';
 import { HighlightMyTextDirective } from './shared/directives/highlight-my-text.directive';
 import { DateFormatterPipe } from './shared/pipes/date-formatter-pipe';
 import { TruncatePipe } from './shared/pipes/truncate.pipe';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
-  { path: 'details', component: DetailsComponent }
+  { path: 'details', component: DetailsComponent },
+  { path: 'my', component: MyComponent}
 ];
 
 @NgModule({
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     ResultComponent,
     HighlightMyTextDirective,
     DateFormatterPipe,
-    TruncatePipe
+    TruncatePipe,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

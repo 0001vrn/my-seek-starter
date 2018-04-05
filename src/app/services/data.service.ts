@@ -10,7 +10,7 @@ import { Data } from './models/data';
 @Injectable()
 export class DataService {
 
-  dataUrl: string = 'data.json';
+  dataUrl: string = './assets/data.json';
   errorMsg = 'default error msg';
   constructor (private http: Http ) { }
 

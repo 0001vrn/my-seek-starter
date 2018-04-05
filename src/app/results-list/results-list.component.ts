@@ -25,6 +25,7 @@ export class ResultsListComponent implements OnInit {
           this.httpService.findArtists(query)
               .then((artistData : any) => {
                 console.log(artistData);
+                this.results = artistData.artist;
               }, error => {
                 console.warn(error.message);
               })
