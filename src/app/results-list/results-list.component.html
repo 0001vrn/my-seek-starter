@@ -1,0 +1,17 @@
+<section>
+  <input 
+    type="text" 
+    placeholder="Search for an artist ... " 
+    (input)="searchForArtist($event.target.value)"
+  />
+  <app-result
+    *ngFor="let searchResult of results"
+    entity="artist"
+    [details]="searchResult"
+  ></app-result>
+  <div
+    [hidden]="results.length > 0"
+    class="no-results">
+    Search for an artist to add them to your favorites.
+  </div>
+</section>

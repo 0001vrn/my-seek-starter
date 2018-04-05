@@ -8,6 +8,9 @@ import { DataStub } from '../services/data-stub';
 import { testData } from '../services/models/test-data';
 import { DataService } from '../services/data.service';
 
+import { HighlightMyTextDirective } from '../shared/directives/highlight-my-text.directive';
+import { DateFormatterPipe } from '../shared/pipes/date-formatter-pipe';
+
 describe('MyComponent', () => {
   let component: MyComponent;
   let fixture: ComponentFixture<MyComponent>;
@@ -15,7 +18,7 @@ describe('MyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyComponent ],
+      declarations: [ MyComponent, HighlightMyTextDirective, DateFormatterPipe ],
     }).overrideComponent(MyComponent, {
       set: {
         providers: [

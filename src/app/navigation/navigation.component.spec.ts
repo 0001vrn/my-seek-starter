@@ -1,8 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavigationComponent } from './navigation.component';
-import { HighlightMyTextDirective } from '../shared/directives/highlight-my-text.directive';
-import { DateFormatterPipe } from '../shared/pipes/date-formatter-pipe';
+
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -10,7 +9,7 @@ describe('NavigationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavigationComponent, HighlightMyTextDirective, DateFormatterPipe ]
+      declarations: [ NavigationComponent ]
     })
     .compileComponents();
   }));

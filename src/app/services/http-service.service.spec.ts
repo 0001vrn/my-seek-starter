@@ -9,20 +9,20 @@ import {
 import 'rxjs/add/operator/toPromise';
 import { HttpModule } from '@angular/http';
 
-import { HttpServiceService, MockHttpService } from './http-service.service';
+import { HttpService, MockHttpService } from './http-service.service';
 
 describe('HttpServiceService', () => {
   let backend: MockBackend;
-  let service: HttpServiceService;
+  let service: HttpService;
   let mockService: MockHttpService;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports:[ HttpModule ],
-      providers: [ HttpServiceService, MockHttpService,
+      providers: [ HttpService, MockHttpService,
         { provide: XHRBackend, useClass: MockBackend } ]
     });
     backend = TestBed.get(XHRBackend);
-    service = TestBed.get(HttpServiceService);
+    service = TestBed.get(HttpService);
     mockService = TestBed.get(MockHttpService);
   });
 
@@ -30,7 +30,7 @@ describe('HttpServiceService', () => {
     expect(service).toBeTruthy();
   });
   it('can instantiate service when inject service', () => {
-    expect(service instanceof HttpServiceService).toBe(true);
+    expect(service instanceof HttpService).toBe(true);
   });
 
   it('can provide the mockBackend as XHRBackend',() => {

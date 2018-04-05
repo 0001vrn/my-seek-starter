@@ -148,19 +148,15 @@ describe('FavoritesService', () => {
     });
   });
   describe('Function: isFavorite(id)', () => {
-    it('should return true is an ID is present inside of the favorites.', () => {
+    it('should return true if an id is present inside of the favorites.', () => {
       expect(service.isFavorite).toBeDefined();
       expect(service.addFavorite).toBeDefined();
       expect(service.removeFavorite).toBeDefined();
-
       service.addFavorite(mockFavorite);
-
       expect(service.isFavorite(1)).toBeTruthy();
-
       service.removeFavorite(1);
-
       expect(service.isFavorite(1)).toBeFalsy();
-  });
+    });
   });
 
   afterEach(() => {

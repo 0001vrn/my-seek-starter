@@ -24,7 +24,7 @@ app-main > section {
   margin: 0;
   padding-top: 3em;
 }
-app-main > section results-list {
+app-main > section app-results-list {
   flex: 1;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -57,10 +57,10 @@ app-navigation > section > a {
   display: block;
 }
 
-results-list {
+app-results-list {
   background-color: #fafcfe;
 }
-results-list input {
+app-results-list input {
   width: calc(100% - 1em - 3px);
   border: solid thin rgba(74, 144, 226, 0.25);
   height: 40px;
@@ -70,22 +70,22 @@ results-list input {
   color: rgba(74, 144, 226, 0.75);
   background-color: rgba(255, 255, 255, 0.8);
 }
-results-list input:focus, results-list input:active {
+app-results-list input:focus, app-results-list input:active {
   outline: none;
 }
-results-list input::-webkit-input-placeholder {
+app-results-list input::-webkit-input-placeholder {
   color: rgba(74, 144, 226, 0.25);
 }
-results-list input:-moz-placeholder {
+app-results-list input:-moz-placeholder {
   color: rgba(74, 144, 226, 0.25);
 }
-results-list input::-moz-placeholder {
+app-results-list input::-moz-placeholder {
   color: rgba(74, 144, 226, 0.25);
 }
-results-list input:-ms-input-placeholder {
+app-results-list input:-ms-input-placeholder {
   color: rgba(74, 144, 226, 0.25);
 }
-results-list .no-results {
+app-results-list .no-results {
   width: 100%;
   padding: 3em 0;
   color: rgba(74, 144, 226, 0.5);
@@ -95,33 +95,33 @@ results-list .no-results {
   background-color: rgba(74, 144, 226, 0.125);
 }
 
-result:nth-of-type(odd) > div {
+app-result:nth-of-type(odd) > div {
   background-color: #f5f9fd;
 }
-result:nth-of-type(odd) > div:hover {
+app-result:nth-of-type(odd) > div:hover {
   background-color: #f1f6fd;
 }
-result > div {
+app-result > div {
   display: flex;
   height: 70px;
   color: #4A90E2;
   overflow: hidden;
   transition: background-color 250ms;
 }
-result > div:hover {
+app-result > div:hover {
   background-color: #f1f6fd;
 }
-result > div > div:first-child {
+app-result > div > div:first-child {
   flex: 1;
   text-align: center;
   padding-top: 10px;
 }
-result > div > div:first-child > img {
+app-result > div > div:first-child > img {
   height: 50px;
   width: 50px;
   border-radius: 10px;
 }
-result > div > div:first-child .placeholder {
+app-result > div > div:first-child .placeholder {
   height: 50px;
   width: 50px;
   border-radius: 10px;
@@ -129,23 +129,23 @@ result > div > div:first-child .placeholder {
   background-color: #cee1f7;
   margin: auto;
 }
-result > div > div:last-child {
+app-result > div > div:last-child {
   flex: 3;
   padding-top: 10px;
   font-weight: normal;
   position: relative;
 }
-result > div > div:last-child span {
+app-result > div > div:last-child span {
   padding-top: .25em;
   width: 83%;
   display: block;
   overflow: hidden;
   font-size: .85em;
 }
-result > div > div:last-child span.artist {
+app-result > div > div:last-child span.artist {
   color: #a2c6f0;
 }
-result > div > div:last-child i {
+app-result > div > div:last-child i {
   color: #cee1f7;
   cursor: pointer;
   position: absolute;
@@ -154,7 +154,7 @@ result > div > div:last-child i {
   padding: 10px;
   transition: color 250ms;
 }
-result > div > div:last-child i:hover {
+app-result > div > div:last-child i:hover {
   color: #76abe9;
 }
 

@@ -1,0 +1,15 @@
+<div>
+  <div>
+      <img *ngIf="thumbnailImage !== ''" [src]="thumbnailImage" [alt]="details?.name">
+      <div *ngIf="thumbnailImage === ''" class="placeholder"></div>
+  </div>
+  <div>
+      <span class="search">
+          {{ details.name | truncate:35 }}
+      </span>
+      <span *ngIf="entity !== 'artist'" class="artist">
+          {{ details.artist | truncate:35 }}
+      </span>
+      <i *ngIf="!favoritesService.isFavorite(details.mbid)" (click)="addFavorite(details)" class="fa fa-plus"></i>
+  </div>
+</div>
