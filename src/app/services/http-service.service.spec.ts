@@ -11,7 +11,7 @@ import { HttpModule } from '@angular/http';
 
 import { HttpService, MockHttpService } from './http-service.service';
 
-describe('HttpServiceService', () => {
+describe('HttpService', () => {
   let backend: MockBackend;
   let service: HttpService;
   let mockService: MockHttpService;
@@ -39,9 +39,6 @@ describe('HttpServiceService', () => {
 
   it('getTopAlbum(artist) should be defined and return error message', () => {
     expect(service.getTopAlbum).toBeDefined();
-    //let result = { result: "No top albums available" };
-    //let response = new Response(new ResponseOptions({ status: 200, body: result }));
-    //backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
     service.getTopAlbum(null).then(res => {
         expect(res).toBeNull();
     });
@@ -51,14 +48,20 @@ describe('HttpServiceService', () => {
     expect(service.getSimilarArtists).toBeDefined();
     service.getSimilarArtists(null).then(res => {
       expect(res).toBeNull();
-  });
+    });
   });
 
   it('getArtistInfo(artist) should be defined', () => {
     expect(service.getArtistInfo).toBeDefined();
+    service.getArtistInfo(null).then(res => {
+      expect(res).toBeNull();
+    });
   });
 
   it('findArtists(query) should be defined', () => {
     expect(service.findArtists).toBeDefined();
+    service.findArtists(null).then(res => {
+      expect(res).toBeNull();
+    });
   });
 });

@@ -20,4 +20,9 @@ describe('DateFormatterPipe', () => {
         expect(pipe.transform(date, 'MM/DD/YYYY')).toEqual('12/12/2012');
     });
 
+    it ('test the changed format 3', () => {
+        expect(pipe.transform(date, 'MM.DD.YYYY')).toEqual('12.12.2012');
+    });
+
+
 });
